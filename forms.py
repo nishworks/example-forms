@@ -5,6 +5,6 @@ from wtforms.validators import Optional, InputRequired, DataRequired
 
 class InputForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
-    states = SelectField("US States", validate_choice=False)
+    states = StringField("US States", validators=[DataRequired()])
     territory = SelectField("Is Territory?", choices=["Unknown", "Yes", "No"], default="Unknown", validators=[InputRequired()])
     submit = SubmitField("Add State", validators=[Optional()])

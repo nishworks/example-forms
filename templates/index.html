@@ -13,25 +13,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
 
     <script type="text/javascript">
-      function liveSearch(value) {
-        value = value.trim();
-        if (value != "") {
-          $.ajax({
-            url: "search",
-            data: { searchText: value },
-            dataType: "json",
-            success: function (data) {
-              var res = "";
-              for (i in data.results) {
-                res += "<option value=" + data.results[i] + ">" + data.results[i] + "</option>";
-              }
-              $("#states").html(res);
-            },
-          });
-        } else {
-          $("#states").html("");
-        }
-      }
     </script>
   </head>
   <body>

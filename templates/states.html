@@ -38,10 +38,18 @@
             </div>
           </div>
           <div class="row">
-            <div class="input-group mt-4 mb-4">
-              <input type="text" class="form-control" placeholder="Search USA States" onkeyup="liveSearch(this.value)">
-                {{ form.states(class="form-control form-select") }}
-              </input>
+               <div class="col">
+              {{ form.states.label(class="form-control-label") }}
+              {% if form.states.errors %}
+                  {{ form.states(class="form-control form-control-md is-invalid") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.states.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.states(class="form-control form-control-md") }}
+              {% endif %}
             </div>
           </div>
           <div class="input-group mb-3 justify-content-md-end">
