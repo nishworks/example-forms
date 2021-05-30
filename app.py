@@ -2,7 +2,7 @@
 import sys
 
 from flask import Flask, render_template, request
-from forms import InputForm, US_STATES
+from forms import InputForm, get_us_states_from_api
 
 app = Flask(__name__)
 
@@ -26,7 +26,7 @@ def index():
 def search():
     text = request.args["searchText"]
 
-    result = [c for c in US_STATES if text.lower() in c.lower()]
+    result = [c for c in get_us_states_from_api() if text.lower() in c.lower()]
     return {"results": result}
 
 
