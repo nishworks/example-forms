@@ -25,18 +25,10 @@ def index():
     form = InputForm()
 
     if request.method == "POST":
-        print(form.name.data, file=sys.stderr)
-        print(form.states.data, file=sys.stderr)
-        print(form.territory.data, file=sys.stderr)
-        print("Hello from outside Validate.", file=sys.stderr)
-
         if form.validate_on_submit():
-            print(form.name.data, file=sys.stderr)
-            print(form.states.data, file=sys.stderr)
-            print(form.territory.data, file=sys.stderr)
-            print("Hello from inside Validate.", file=sys.stderr)
+            print("Validation successful", file=sys.stderr)
         else:
-            print(form.errors)
+            print("validation unsuccessful")
 
     return render_template("states.html", form=form)
 
